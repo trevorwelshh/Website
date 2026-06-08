@@ -3,104 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>trevor welsh</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet" />
+  <title>Trevor Welsh</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background: #EAE7E4;
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      color: #2b2928;
     }
 
+    /* ── Hero ── */
     .hero {
-      height: calc(100vh - 80px);
-      padding: 3rem 2.5rem;
+      height: 100vh;
+      padding: 0 64px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      gap: 12px;
     }
 
     h1 {
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(48px, 10vw, 80px);
-      font-weight: 400;
-      color: #1a1a1a;
-      line-height: 1.05;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.25rem;
+      font-size: 11.25vw;
+      font-weight: 500;
+      color: #2b2928;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
     }
 
-    .subtitle {
-      font-size: 18px;
-      color: #555;
-      letter-spacing: 0.01em;
+    .name {
+      font-size: 24px;
+      font-weight: 500;
+      color: #808080;
     }
 
-    nav {
-      padding: 6rem 2.5rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
+    /* ── Two-col (about / origins) ── */
+    .two-col {
+      display: flex;
+      align-items: center;
+      gap: 128px;
+      padding: 64px;
     }
 
-    .nav-col {
+    .col {
+      flex: 1;
       display: flex;
       flex-direction: column;
+      gap: 16px;
     }
 
-    .nav-label {
-      font-size: 13px;
-      color: #999;
-      letter-spacing: 0.04em;
-      padding-bottom: 0.5rem;
+    .col-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #2b2928;
     }
 
-    nav a {
-      font-size: 24px;
-      color: #1a1a1a;
-      text-decoration: none;
-      display: inline-flex;
+    .col p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #808080;
+    }
+
+    /* ── Metrics ── */
+    .metrics {
+      display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 0.35rem 0;
-      transition: opacity 0.15s;
+      justify-content: center;
+      gap: 128px;
+      height: 512px;
+      padding: 64px;
+      text-align: center;
     }
 
-    nav a:hover { opacity: 0.5; }
-
-    nav a svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      transition: transform 0.15s;
+    .metric {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
     }
 
-    nav a:hover svg { transform: translate(2px, -2px); }
-
-    .about {
-      padding: 6rem 2.5rem;
-      max-width: 680px;
+    .metric-number {
+      font-size: clamp(80px, 13.9vw, 200px);
+      font-weight: 500;
+      color: #2b2928;
+      line-height: 1;
+      white-space: nowrap;
     }
 
-    .about-label {
-      font-size: 13px;
-      color: #999;
-      letter-spacing: 0.04em;
-      display: block;
-      margin-bottom: 1.5rem;
+    .metric-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #808080;
     }
 
-    .about p {
-      font-size: 20px;
-      line-height: 1.75;
-      color: #1a1a1a;
-    }
-
-    .about p + p {
-      margin-top: 1.25rem;
+    /* ── Banner + closing text ── */
+    .banner-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+      padding: 64px;
+      width: 100%;
     }
 
     .banner {
@@ -113,28 +119,208 @@
       height: auto;
       display: block;
     }
+
+    .closing-text {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #808080;
+      text-align: center;
+      max-width: 510px;
+    }
+
+    /* ── Links ── */
+    .links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .link-col {
+      padding: 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .link-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #808080;
+    }
+
+    .link-col a {
+      font-size: 24px;
+      font-weight: 500;
+      color: #2b2928;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.15s;
+    }
+
+    .link-col a:hover { opacity: 0.4; }
+
+    .link-col a svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.15s;
+    }
+
+    .link-col a:hover svg { transform: translate(2px, -2px); }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      /* Hero */
+      .hero {
+        padding: 0 24px;
+      }
+
+      h1 {
+        font-size: 13vw;
+        white-space: normal;
+        letter-spacing: -0.02em;
+      }
+
+      .name {
+        font-size: 16px;
+      }
+
+      /* About / Origins — stack vertically */
+      .two-col {
+        flex-direction: column;
+        gap: 40px;
+        padding: 48px 24px;
+      }
+
+      /* Metrics — horizontal but smaller, auto height */
+      .metrics {
+        gap: 0;
+        height: auto;
+        padding: 48px 24px;
+      }
+
+      .metric {
+        gap: 8px;
+      }
+
+      .metric-number {
+        font-size: 16vw;
+      }
+
+      .metric-label {
+        font-size: 11px;
+      }
+
+      /* Banner section */
+      .banner-section {
+        padding: 48px 24px;
+        gap: 40px;
+      }
+
+      /* Links — stack vertically */
+      .links {
+        flex-direction: column;
+      }
+
+      .link-col {
+        padding: 32px 24px;
+      }
+
+      .link-col + .link-col {
+        padding-top: 0;
+      }
+
+      nav a {
+        font-size: 20px;
+      }
+    }
+
+    /* ── Animations ── */
+
+    /* Hero: fade up on load */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h1   { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .name { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+
+    /* Scroll reveals */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays for grid children */
+    .stagger > *:nth-child(1) { transition-delay: 0s; }
+    .stagger > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger > *:nth-child(3) { transition-delay: 0.2s; }
+
+    /* Banner: subtle scale in */
+    .banner-section .banner img {
+      transform-origin: center;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .banner-section.reveal .banner img   { transform: scale(1.03); }
+    .banner-section.visible .banner img  { transform: scale(1); }
   </style>
 </head>
 <body>
+
+  <!-- Hero -->
   <div class="hero">
-    <h1>trevor welsh</h1>
-    <p class="subtitle">ux/ui designer</p>
+    <h1>UX/UI DESIGNER</h1>
+    <p class="name">Trevor Welsh</p>
   </div>
-  <div class="about">
-    <span class="about-label">about</span>
-    <p>I'm a UX/UI designer based in Southern California dedicated to making products that feel intuitive, powerful, and human. From landing pages to SaaS products, I've worked across industries on projects of all sizes.</p>
+
+  <!-- About / Origins -->
+  <div class="two-col reveal">
+    <div class="col">
+      <span class="col-label">ABOUT</span>
+      <p>I'm a UX/UI designer based in Southern California dedicated to making products that feel intuitive, powerful, and human. From landing pages to SaaS products, I've worked across industries on projects of all sizes.</p>
+    </div>
+    <div class="col">
+      <span class="col-label">ORIGINS</span>
+      <p>I've been building and designing products for nearly a decade: starting with no-code eCommerce builds, moving into self-taught iOS development, and arriving at Figma-focused product design.</p>
+    </div>
   </div>
-  <div class="banner">
-    <img src="banner.jpg" alt="portfolio works" />
+
+  <!-- Metrics -->
+  <div class="metrics stagger">
+    <div class="metric reveal">
+      <span class="metric-number" data-target="16" data-pad="2">16</span>
+      <span class="metric-label">CONTRACTS COMPLETED</span>
+    </div>
+    <div class="metric reveal">
+      <span class="metric-number" data-target="5" data-pad="2">05</span>
+      <span class="metric-label">YEARS OF EXPERIENCE</span>
+    </div>
+    <div class="metric reveal">
+      <span class="metric-number" data-target="100" data-pad="3">100</span>
+      <span class="metric-label">PERCENT JOB SUCCESS</span>
+    </div>
   </div>
-  <div class="about">
-    <span class="about-label">context</span>
-    <p>I've been building and designing products for nearly a decade: starting with no-code eCommerce builds, moving into self-taught iOS development, and arriving at Figma-focused product design.</p>
-    <p>My process is practical and iterative by nature — I believe the most sophisticated solutions are usually the simplest ones and always aim to bridge the gap between business objectives and user needs.</p>
+
+  <!-- Banner + closing paragraph -->
+  <div class="banner-section reveal">
+    <div class="banner">
+      <img src="banner.jpg" alt="portfolio works" />
+    </div>
+    <p class="closing-text">I'm currently available for new contracts and full-time roles if the shoe fits. If you're building something that needs to feel right, let's talk.</p>
   </div>
-  <nav>
-    <div class="nav-col">
-      <span class="nav-label">works</span>
+
+  <!-- Links -->
+  <div class="links stagger">
+    <div class="link-col reveal">
+      <span class="link-label">WORKS</span>
       <a href="https://www.figma.com/design/8p7jisCmCjNazG778y5h86/Trevor-s-Portfolio" target="_blank" rel="noopener">
         figma portfolio
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -144,17 +330,58 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
     </div>
-    <div class="nav-col">
-      <span class="nav-label">connect</span>
+    <div class="link-col reveal">
+      <span class="link-label">CONNECT</span>
       <a href="https://www.linkedin.com/in/trevorjameswelsh/" target="_blank" rel="noopener">
         linkedin
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
       <a href="mailto:studio@trevorwelsh.com">
-        email me
+        email
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
     </div>
-  </nav>
+  </div>
+
+  <script>
+    // ── Scroll reveal ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Metric count-up ──
+    function countUp(el, target, pad, duration) {
+      const start = performance.now();
+      const update = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const val = Math.floor(eased * target);
+        el.textContent = String(val).padStart(pad, '0');
+        if (progress < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    }
+
+    const metricsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.metric-number').forEach(el => {
+            countUp(el, parseInt(el.dataset.target), parseInt(el.dataset.pad), 1000);
+          });
+          metricsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const metricsEl = document.querySelector('.metrics');
+    if (metricsEl) metricsObserver.observe(metricsEl);
+  </script>
 </body>
 </html>
