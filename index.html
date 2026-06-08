@@ -55,7 +55,7 @@
     }
 
     .col-label {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       color: #2b2928;
     }
@@ -143,7 +143,7 @@
     }
 
     .link-label {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       color: #808080;
     }
@@ -194,22 +194,16 @@
         padding: 48px 24px;
       }
 
-      /* Metrics — horizontal but smaller, auto height */
+      /* Metrics — stack vertically on mobile */
       .metrics {
+        flex-direction: column;
         height: auto;
+        gap: 48px;
         padding: 48px 24px;
       }
 
-      .metric {
-        gap: 8px;
-      }
-
       .metric-number {
-        font-size: 16vw;
-      }
-
-      .metric-label {
-        font-size: 11px;
+        font-size: clamp(80px, 30vw, 160px);
       }
 
       /* Banner section */
