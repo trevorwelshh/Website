@@ -98,12 +98,8 @@
       color: #808080;
     }
 
-    /* ── Banner + closing text ── */
+    /* ── Banner ── */
     .banner-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 64px;
       padding: 64px;
       width: 100%;
     }
@@ -119,20 +115,11 @@
       display: block;
     }
 
-    .closing-text {
-      font-size: 16px;
-      line-height: 1.5;
-      color: #808080;
-      text-align: center;
-      min-width: 100%;
-      word-break: break-word;
-      flex-shrink: 0;
-    }
-
     /* ── Footer ── */
     .footer {
       display: flex;
       flex-direction: column;
+      gap: 64px;
       align-items: center;
       padding: 64px;
       width: 100%;
@@ -140,8 +127,8 @@
 
     .footer-row {
       display: flex;
-      gap: 128px;
-      align-items: flex-end;
+      justify-content: space-between;
+      align-items: center;
       width: 100%;
     }
 
@@ -186,12 +173,33 @@
 
     .link-col a:hover svg { transform: translate(2px, -2px); }
 
+    .footer-divider {
+      height: 1px;
+      background: #808080;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .footer-text {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .footer-closing {
+      font-size: 14px;
+      color: #2b2928;
+      line-height: 1.5;
+      width: 100%;
+    }
+
     .footer-credit {
-      flex: 1 0 0;
       font-size: 12px;
       color: #808080;
-      text-align: right;
       line-height: 1.5;
+      width: 100%;
     }
 
     /* ── Mobile ── */
@@ -238,22 +246,18 @@
       /* Banner section */
       .banner-section {
         padding: 48px 24px;
-        gap: 40px;
       }
 
       /* Footer — stack vertically */
       .footer {
         padding: 48px 24px;
+        gap: 48px;
       }
 
       .footer-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 40px;
-      }
-
-      .footer-credit {
-        text-align: left;
       }
 
     }
@@ -290,8 +294,8 @@
     .banner-section .banner img {
       transform-origin: center;
       transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(1.03);
     }
-    .banner-section.reveal .banner img   { transform: scale(1.03); }
     .banner-section.visible .banner img  { transform: scale(1); }
   </style>
 </head>
@@ -331,12 +335,11 @@
     </div>
   </div>
 
-  <!-- Banner + closing paragraph -->
+  <!-- Banner -->
   <div class="banner-section reveal">
     <div class="banner">
       <img src="banner.jpg" alt="portfolio works" />
     </div>
-    <p class="closing-text">I'm currently available for new contracts and full-time roles if the shoe fits. If you're building something that needs to feel right, let's talk.</p>
   </div>
 
   <!-- Footer -->
@@ -368,6 +371,10 @@
           </a>
         </div>
       </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-text">
+      <p class="footer-closing">I'm currently available for new contracts and full-time roles if the shoe fits. If you're building something that needs to feel right, let's talk.</p>
       <p class="footer-credit">Designed in Figma, programmed by Claude.</p>
     </div>
   </footer>
