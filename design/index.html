@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trevor Welsh, UX/UI Designer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #EAE7E4;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      color: #2b2928;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      height: 100vh;
+      padding: 0 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    h1 {
+      font-size: 11.25vw;
+      font-weight: 500;
+      color: #2b2928;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: 500;
+      color: #808080;
+    }
+
+    /* ── Two-col (about / origins) ── */
+    .two-col {
+      display: flex;
+      align-items: flex-start;
+      gap: 128px;
+      padding: 64px;
+    }
+
+    .col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .col-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2b2928;
+    }
+
+    .col p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #808080;
+    }
+
+    /* ── Metrics ── */
+    .metrics {
+      display: flex;
+      align-items: center;
+      gap: 128px;
+      height: 512px;
+      padding: 64px;
+      text-align: center;
+    }
+
+    .metric {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .metric-number {
+      font-size: clamp(80px, 13.9vw, 200px);
+      font-weight: 500;
+      color: #2b2928;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .metric-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #808080;
+    }
+
+    /* ── Banner ── */
+    .banner-section {
+      padding: 64px;
+      width: 100%;
+    }
+
+    .banner {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      align-items: center;
+      padding: 64px;
+      width: 100%;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .link-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .link-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #808080;
+    }
+
+    .link-col a {
+      font-size: 24px;
+      font-weight: 500;
+      color: #2b2928;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.15s;
+    }
+
+    .link-col a:hover { opacity: 0.4; }
+
+    .link-col a svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      transition: transform 0.15s;
+    }
+
+    .link-col a:hover svg { transform: translate(2px, -2px); }
+
+    .footer-divider {
+      height: 1px;
+      background: #bbb9b6;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .footer-text {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .footer-closing {
+      font-size: 14px;
+      color: #2b2928;
+      line-height: 1.5;
+      width: 100%;
+    }
+
+    .footer-credit {
+      font-size: 12px;
+      color: #808080;
+      line-height: 1.5;
+      width: 100%;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      /* Hero */
+      .hero {
+        padding: 0 24px;
+      }
+
+      h1 {
+        font-size: 13vw;
+        white-space: normal;
+        letter-spacing: -0.02em;
+      }
+
+      .name {
+        font-size: 16px;
+      }
+
+      /* About / Origins — stack vertically */
+      .two-col {
+        flex-direction: column;
+        gap: 40px;
+        padding: 48px 24px;
+      }
+
+      /* Metrics — stack vertically, left aligned on mobile */
+      .metrics {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 48px;
+        padding: 48px 24px;
+      }
+
+      .metric {
+        align-items: flex-start;
+      }
+
+      .metric-number {
+        font-size: clamp(80px, 30vw, 160px);
+      }
+
+      /* Banner section */
+      .banner-section {
+        padding: 48px 24px;
+      }
+
+      /* Footer — stack vertically */
+      .footer {
+        padding: 48px 24px;
+        gap: 48px;
+      }
+
+      .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+    }
+
+    /* ── Animations ── */
+
+    /* Hero: fade up on load */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h1   { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .name { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+
+    /* Scroll reveals */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays for grid children */
+    .stagger > *:nth-child(1) { transition-delay: 0s; }
+    .stagger > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger > *:nth-child(3) { transition-delay: 0.2s; }
+
+    /* Banner: subtle scale in */
+    .banner-section .banner img {
+      transform-origin: center;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(1.03);
+    }
+    .banner-section.visible .banner img  { transform: scale(1); }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>ux/ui designer</h1>
+    <p class="name">Trevor Welsh</p>
+  </div>
+
+  <!-- About / Origins -->
+  <div class="two-col reveal">
+    <div class="col">
+      <span class="col-label">ABOUT</span>
+      <p>I'm a UX/UI designer based in Southern California dedicated to making products that feel intuitive, powerful, and human. As a freelancer, I've worked across various industries on projects of all sizes from landing pages to SaaS products.</p>
+    </div>
+    <div class="col">
+      <span class="col-label">ORIGINS</span>
+      <p>My background in design originates with no-code website builds and self-taught iOS development. I have over five years of total design experience, three of which are focused exclusively on UX/UI within Figma.</p>
+    </div>
+    <div class="col">
+      <span class="col-label">PHILOSOPHY</span>
+      <p>My process is practical and iterative by nature. I believe that the best designs bridge the gap between business objectives and user intuition. Complexity is usually a sign of unfinished work, and elegance is my goal.</p>
+    </div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="metrics stagger">
+    <div class="metric reveal">
+      <span class="metric-number" data-target="3" data-pad="2">03</span>
+      <span class="metric-label">YEARS OF EXPERIENCE</span>
+    </div>
+    <div class="metric reveal">
+      <span class="metric-number" data-target="16" data-pad="2">16</span>
+      <span class="metric-label">CONTRACTS COMPLETE</span>
+    </div>
+    <div class="metric reveal">
+      <span class="metric-number" data-target="100" data-pad="3">100</span>
+      <span class="metric-label">PERCENT JOB SUCCESS</span>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner-section reveal">
+    <div class="banner">
+      <img src="banner.jpg" alt="portfolio works" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer reveal">
+    <div class="footer-row">
+      <div class="link-col">
+        <span class="link-label">WORKS</span>
+        <div class="link-list">
+          <a href="https://www.figma.com/design/8p7jisCmCjNazG778y5h86/Trevor-s-Portfolio" target="_blank" rel="noopener">
+            figma portfolio
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a href="https://www.upwork.com/freelancers/trevorwelsh" target="_blank" rel="noopener">
+            upwork
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="link-col">
+        <span class="link-label">CONNECT</span>
+        <div class="link-list">
+          <a href="https://www.linkedin.com/in/trevorjameswelsh/" target="_blank" rel="noopener">
+            linkedin
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a href="mailto:studio@trevorwelsh.com">
+            email
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-text">
+      <p class="footer-closing">I'm currently available for new contracts and full-time roles if the shoe fits. If you're building something that needs to feel right, let's talk.</p>
+      <p class="footer-credit">Designed in Figma, programmed by Claude.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Scroll reveal ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Metric count-up ──
+    function countUp(el, target, pad, duration) {
+      const start = performance.now();
+      const update = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const val = Math.floor(eased * target);
+        el.textContent = String(val).padStart(pad, '0');
+        if (progress < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    }
+
+    const metricsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.metric-number').forEach(el => {
+            countUp(el, parseInt(el.dataset.target), parseInt(el.dataset.pad), 1000);
+          });
+          metricsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const metricsEl = document.querySelector('.metrics');
+    if (metricsEl) metricsObserver.observe(metricsEl);
+  </script>
+</body>
+</html>
