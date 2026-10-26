@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookies test</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #ffffff;
+      font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      color: #1d1d1f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 400;
+      color: #6e6e73;
+      max-width: 420px;
+      line-height: 1.4;
+    }
+
+    .result { display: none; }
+    body.pass .result.pass, body.fail .result.fail, body.wait .result.wait { display: contents; }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 14px 24px;
+      border-radius: 14px;
+      corner-shape: squircle;
+      background: #1d1d1f;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    #cookie-banner {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      padding: 20px;
+      background: #f5f5f7;
+      border-radius: 20px;
+      corner-shape: squircle;
+      text-align: left;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    #cookie-banner p { font-size: 15px; max-width: none; margin-bottom: 14px; }
+
+    #cookie-banner .buttons { display: flex; gap: 10px; }
+
+    #cookie-banner button {
+      flex: 1;
+      padding: 12px;
+      border: 0;
+      border-radius: 12px;
+      corner-shape: squircle;
+      font: inherit;
+      font-size: 15px;
+      background: #e8e8ed;
+      color: #1d1d1f;
+    }
+
+    #cookie-banner button.accept { background: #1d1d1f; color: #ffffff; }
+  </style>
+</head>
+<body class="wait">
+  <div class="result wait">
+    <h1>Testing Cookies</h1>
+    <p>A cookie banner is showing below. If the extension is set up, it answers it on its own within a few seconds.</p>
+  </div>
+  <div class="result pass">
+    <h1>It works</h1>
+    <p id="pass-text"></p>
+    <a class="btn" href="cookies://test?result=pass">Back to Cookies</a>
+  </div>
+  <div class="result fail">
+    <h1>Nothing happened</h1>
+    <p>The banner is still there after a few seconds, so the extension is off or not allowed on this site. Check the setup steps in Cookies.</p>
+    <a class="btn" href="cookies://test?result=fail">Back to Cookies</a>
+  </div>
+
+  <div id="cookie-banner">
+    <p>This site uses cookies for analytics and marketing. You can accept all cookies or reject the optional ones.</p>
+    <div class="buttons">
+      <button class="reject">Reject all</button>
+      <button class="accept">Accept all</button>
+    </div>
+  </div>
+
+  <script>
+    const banner = document.getElementById("cookie-banner");
+    const start = Date.now();
+    const settle = (choice) => {
+      banner.remove();
+      const auto = Date.now() - start < 8000;
+      document.getElementById("pass-text").textContent = auto
+        ? `The extension clicked ${choice} for you.`
+        : `You clicked ${choice} yourself, so the extension did not act. Check the setup steps in Cookies.`;
+      document.body.className = "pass";
+    };
+    banner.querySelector(".reject").addEventListener("click", () => settle("Reject all"));
+    banner.querySelector(".accept").addEventListener("click", () => settle("Accept all"));
+    setTimeout(() => { if (document.body.className === "wait") document.body.className = "fail"; }, 10000);
+  </script>
+</body>
+</html>
