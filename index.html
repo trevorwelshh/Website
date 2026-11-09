@@ -467,7 +467,7 @@
         const no = String(figure).padStart(2, '0');
         const link = it.href ? `<a href="${it.href}" target="_blank" rel="noopener">${it.kind.includes('mac') ? 'Website' : 'App Store'} ${arrow}</a>` : '';
         const name = it.app ? `${it.name}, ${it.app}` : it.name;
-        el.innerHTML = `<div class="frame"><img src="img/${it.img}.webp?v=2" alt="${name}" draggable="false" style="aspect-ratio: ${it.ar}; --p: ${it.p}" /></div>
+        el.innerHTML = `<div class="frame"><img src="img/${it.img}.webp?v=3" alt="${name}" draggable="false" style="aspect-ratio: ${it.ar}; --p: ${it.p}" /></div>
           <figcaption class="caption"><span class="no">${no}</span><span class="name">${name}</span>${link}<span class="meta">${it.meta}</span></figcaption>`;
 
         const b = document.createElement('button');
