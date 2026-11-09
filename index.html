@@ -4,7 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trevor Welsh</title>
-  <meta name="description" content="Trevor Welsh designs and builds iOS apps, including L8R, GoFly, and Sunny." />
+  <meta name="description" content="Trevor Welsh designs and builds apps for iPhone and Mac, including Cineica, GoFly, Folders, Hover, L8R and Sunny." />
+  <link rel="canonical" href="https://trevorwelsh.com/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Trevor Welsh" />
+  <meta property="og:description" content="Interface designer, app maker, and spaceflight enthusiast." />
+  <meta property="og:url" content="https://trevorwelsh.com/" />
+  <meta property="og:image" content="https://trevorwelsh.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -270,6 +283,20 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    a:focus-visible {
+      outline: 2px solid #0071e3;
+      outline-offset: 4px;
+    }
+
+    .app-row:focus-visible { outline-offset: 2px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      h1, .intro { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .app-row, .app-row svg, .link-col a svg { transition: none; }
+      .app-row:hover { transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -283,7 +310,7 @@
     <span class="section-label">Apps</span>
     <div class="app-list">
       <a class="app-row" href="https://apps.apple.com/app/apple-store/id6829584713?pt=123932392&amp;ct=tw&amp;mt=8" target="_blank" rel="noopener">
-        <img class="app-icon" src="apps/cineica.png" alt="Cineica app icon" />
+        <img class="app-icon" src="apps/cineica.webp" width="64" height="64" alt="Cineica app icon" />
         <span class="app-text">
           <span class="app-name">Cineica</span>
           <span class="app-tagline">A cinematic photo camera.</span>
@@ -291,7 +318,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
       <a class="app-row" href="https://apps.apple.com/app/apple-store/id6788937279?pt=123932392&amp;ct=tw&amp;mt=8" target="_blank" rel="noopener">
-        <img class="app-icon" src="apps/gofly.png" alt="GoFly app icon" />
+        <img class="app-icon" src="apps/gofly.webp" width="64" height="64" alt="GoFly app icon" />
         <span class="app-text">
           <span class="app-name">GoFly</span>
           <span class="app-tagline">A powerful E6B flight computer.</span>
@@ -299,7 +326,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
       <a class="app-row" href="https://foldersformac.com" target="_blank" rel="noopener">
-        <img class="app-icon" src="apps/folders.png" alt="Folders app icon" />
+        <img class="app-icon" src="apps/folders.webp" width="64" height="64" alt="Folders app icon" />
         <span class="app-text">
           <span class="app-name">Folders</span>
           <span class="app-tagline">A catalog of every drive you own.</span>
@@ -307,7 +334,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
       <a class="app-row" href="https://apps.apple.com/app/apple-store/id6824683898?pt=123932392&amp;ct=tw&amp;mt=8" target="_blank" rel="noopener">
-        <img class="app-icon" src="apps/hover.png" alt="Hover app icon" />
+        <img class="app-icon" src="apps/hover.webp" width="64" height="64" alt="Hover app icon" />
         <span class="app-text">
           <span class="app-name">Hover</span>
           <span class="app-tagline">A focused Part 107 test prep.</span>
@@ -315,7 +342,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
       <a class="app-row" href="https://apps.apple.com/app/apple-store/id6468926207?pt=123932392&amp;ct=tw&amp;mt=8" target="_blank" rel="noopener">
-        <img class="app-icon" src="apps/l8r.png" alt="L8R app icon" />
+        <img class="app-icon" src="apps/l8r.webp" width="64" height="64" alt="L8R app icon" />
         <span class="app-text">
           <span class="app-name">L8R</span>
           <span class="app-tagline">A vintage film camera.</span>
@@ -323,7 +350,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
       <a class="app-row" href="https://apps.apple.com/app/apple-store/id6781954982?pt=123932392&amp;ct=tw&amp;mt=8" target="_blank" rel="noopener">
-        <img class="app-icon" src="apps/sunny.png" alt="Sunny app icon" />
+        <img class="app-icon" src="apps/sunny.webp" width="64" height="64" alt="Sunny app icon" />
         <span class="app-text">
           <span class="app-name">Sunny</span>
           <span class="app-tagline">A simple, beautiful light meter.</span>
