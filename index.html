@@ -69,9 +69,10 @@
       left: 0;
       top: 0;
       transform-origin: 0 0;
+      will-change: transform;
     }
 
-    .world.moving { will-change: transform; }
+    .world.settle { will-change: auto; }
 
     .item {
       position: absolute;
@@ -228,13 +229,20 @@
       right: 0;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      padding: 24px 28px;
-      padding-top: max(24px, env(safe-area-inset-top));
+      align-items: center;
+      padding: 20px 24px;
+      padding-top: max(20px, env(safe-area-inset-top));
+    }
+
+    .masthead .mark, .masthead nav {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 999px;
+      outline: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 9px 16px;
     }
 
     .masthead .mark { font-size: 15px; letter-spacing: -0.01em; }
-    .masthead nav { display: flex; gap: 24px; }
+    .masthead nav { display: flex; gap: 20px; }
 
     .chrome button {
       font: inherit;
@@ -359,6 +367,7 @@
     @media (max-width: 640px) {
       .masthead { padding: 18px 18px; padding-top: max(18px, env(safe-area-inset-top)); }
       .masthead nav { gap: 16px; }
+      .masthead .mark, .masthead nav { padding: 8px 14px; }
       .status { padding: 16px 18px; padding-bottom: max(16px, env(safe-area-inset-bottom)); }
       .readout { display: none; }
       .status { justify-content: flex-end; }
@@ -403,12 +412,12 @@
     const items = [
       { id: 'title', kind: 'title', w: 1300 },
 
-      { id: 'cineica', kind: 'icon', a: 210, w: 300, ar: '1138 / 1138', p: 0.2409, img: 'icon-cineica', name: 'Cineica', meta: 'Cinematic photo camera', href: store(6829584713) },
-      { id: 'gofly', kind: 'icon', a: -30, w: 300, ar: '1138 / 1138', p: 0.2409, img: 'icon-gofly', name: 'GoFly', meta: 'E6B flight computer', href: store(6788937279) },
       { id: 'folders', kind: 'icon mac', a: -90, w: 300, ar: '924 / 924', p: 0.2404, img: 'icon-folders', name: 'Folders', meta: 'Catalog of every drive', href: 'https://foldersformac.com' },
-      { id: 'hover', kind: 'icon', a: 150, w: 300, ar: '1138 / 1138', p: 0.2409, img: 'icon-hover', name: 'Hover', meta: 'Part 107 test prep', href: store(6824683898) },
+      { id: 'gofly', kind: 'icon', a: -30, w: 300, ar: '1138 / 1138', p: 0.2409, img: 'icon-gofly', name: 'GoFly', meta: 'E6B flight computer', href: store(6788937279) },
       { id: 'l8r', kind: 'icon', a: 30, w: 300, ar: '1138 / 1138', p: 0.2409, img: 'icon-l8r', name: 'L8R', meta: 'Vintage film camera', href: store(6468926207) },
       { id: 'sunny', kind: 'icon', a: 90, w: 300, ar: '1138 / 1138', p: 0.2409, img: 'icon-sunny', name: 'Sunny', meta: 'Light meter', href: store(6781954982) },
+      { id: 'hover', kind: 'icon', a: 150, w: 300, ar: '1138 / 1138', p: 0.2409, img: 'icon-hover', name: 'Hover', meta: 'Part 107 test prep', href: store(6824683898) },
+      { id: 'cineica', kind: 'icon', a: 210, w: 300, ar: '1138 / 1138', p: 0.2409, img: 'icon-cineica', name: 'Cineica', meta: 'Cinematic photo camera', href: store(6829584713) },
 
       { id: 'folders-display', kind: 'device', w: 900, ar: '2040 / 1650', p: 0.105, img: 'dev-folders-display', name: 'Library', app: 'Folders', meta: 'Studio Display' },
       { id: 'gofly-crosswind', kind: 'device', w: 300, ar: '976 / 1612', p: 0.3133, img: 'dev-gofly-crosswind', name: 'Crosswind', app: 'GoFly', meta: 'iPhone' },
@@ -516,16 +525,21 @@
     let anim = null;
 
     const dots = document.querySelector('.dots');
-    let rest = 0;
+    let rest = 0, painted = 0;
     const render = () => {
       world.style.transform = `translate3d(${view.x}px, ${view.y}px, 0) scale(${view.s})`;
       const g = 32 * view.s * (view.s < 0.5 ? 2 : 1) * (view.s < 0.25 ? 2 : 1);
       const size = `${g}px ${g}px`;
       if (dots.style.backgroundSize !== size) dots.style.backgroundSize = size;
       dots.style.transform = `translate3d(${(view.x % g) - g}px, ${(view.y % g) - g}px, 0)`;
-      world.classList.add('moving');
-      clearTimeout(rest);
-      rest = setTimeout(() => world.classList.remove('moving'), 180);
+      if (view.s !== painted) {
+        clearTimeout(rest);
+        rest = setTimeout(() => {
+          painted = view.s;
+          world.classList.add('settle');
+          requestAnimationFrame(() => world.classList.remove('settle'));
+        }, 220);
+      }
       const cx = (innerWidth / 2 - view.x) / view.s, cy = (innerHeight / 2 - view.y) / view.s;
       document.querySelector('.coords').textContent = `x ${Math.round(cx)}  y ${Math.round(cy)}`;
       document.querySelector('.pct').textContent = `${Math.round(view.s * 100)}%`;
